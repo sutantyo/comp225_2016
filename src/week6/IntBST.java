@@ -56,7 +56,7 @@ public String preorder() {
     }
     protected String preorder(IntBSTNode p) {
         if (p != null) {
-             return p.key + " " + preorder(p.left) + " " + preorder(p.right);
+             return p.key  + preorder(p.left)  + preorder(p.right);
         }
         else return "";
     }
@@ -65,7 +65,7 @@ public String preorder() {
     }
     protected String inorder(IntBSTNode p) {
         if (p != null) {
-            return inorder(p.left) + " " + p.key + " " + inorder(p.right);
+            return inorder(p.left)  + p.key  + inorder(p.right);
         }
         else return "";
     }
@@ -74,7 +74,7 @@ public String preorder() {
     }
     protected String postorder(IntBSTNode p) {
         if (p != null) {
-           return  postorder(p.left) + " " + postorder(p.right) + " " +  p.key;
+           return  postorder(p.left) + postorder(p.right)  +  p.key;
         }
         else return "";
     }
@@ -215,9 +215,57 @@ public void insert(int el) {
     	return hasPathSum(root, sum);
     }
     
-    public static boolean hasPathSum(IntBSTNode root, int sum) {
-    	// TODO Auto-generated method stub
-    	return false;
+    public boolean hasPathSum(IntBSTNode p, int sum) {
+
+        if (p == null)
+            return false;
+        else {
+            return hasPathSum(p.left,sum-p.key) || hasPathSum(p.right,sum-p.key);
+            //return hasPathSum(p.left,sum-p.key) || ((sum == p.key) && p.left == null && p.right == null) || hasPathSum(p.right,sum-p.key);
+        }
+    }
+
+    public int numberOfFullNodes(){
+        return numberOfFullNodes(root);
+    }
+
+    private int numberOfFullNodes(IntBSTNode p){
+       if (p == null)
+           return 0;
+        else if (p.left != null && p.right != null)
+           return 1 + numberOfFullNodes(p.left) + numberOfFullNodes(p.right);
+        else if (p.left == null)
+           return numberOfFullNodes(p.right);
+        else
+           return numberOfFullNodes(p.left);
+           //return numberOfFullNodes(p.left) + numberOfFullNodes(p.right);
+    }
+
+    public int sumOfNodes(){
+       return sumOfNodes(root);
+    }
+
+    private int sumOfNodes(IntBSTNode p){
+        if (p == null)
+            return 0;
+        else {
+            return sumOfNodes(p.left) + p.key + sumOfNodes(p.right);
+        }
+    }
+
+    public boolean isBalanced(){
+        return isBalanced(root) >= 0;
+    }
+
+    private int isBalanced(IntBSTNode p){
+        if (p == null)
+            return 0;
+        else if ( Math.abs(isBalanced(p.left) - isBalanced(p.right)) > 1 ) {
+            return -1;
+        }
+        else {
+            return 1 + Math.max(isBalanced(p.left),isBalanced(p.right));
+        }
     }
 
     @Test
