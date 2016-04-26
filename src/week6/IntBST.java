@@ -210,18 +210,21 @@ public void insert(int el) {
             balance(data,middle+1,last);
         }
     }
-   
+
     public boolean hasPathSum(int sum) {
     	return hasPathSum(root, sum);
     }
-    
+
+
     public boolean hasPathSum(IntBSTNode p, int sum) {
 
         if (p == null)
             return false;
         else {
-            return hasPathSum(p.left,sum-p.key) || hasPathSum(p.right,sum-p.key);
-            //return hasPathSum(p.left,sum-p.key) || ((sum == p.key) && p.left == null && p.right == null) || hasPathSum(p.right,sum-p.key);
+            // the following commented line is incorrect, can you see why?
+            // return hasPathSum(p.left,sum-p.key) || hasPathSum(p.right,sum-p.key);
+
+            return hasPathSum(p.left,sum-p.key) || ((sum == p.key) && p.left == null && p.right == null) || hasPathSum(p.right,sum-p.key);
         }
     }
 
@@ -234,38 +237,46 @@ public void insert(int el) {
            return 0;
         else if (p.left != null && p.right != null)
            return 1 + numberOfFullNodes(p.left) + numberOfFullNodes(p.right);
-        else if (p.left == null)
-           return numberOfFullNodes(p.right);
         else
-           return numberOfFullNodes(p.left);
-           //return numberOfFullNodes(p.left) + numberOfFullNodes(p.right);
+           return numberOfFullNodes(p.left) + numberOfFullNodes(p.right);
     }
 
     public int sumOfNodes(){
        return sumOfNodes(root);
     }
 
+    /* You can do it like this if you want to, just to contrast with the solution which I commented out.
+     * The stopping condition is no longer when (p == null), it's when p's children are both null.
+     * You can see how it's more complicated to write it this way */
     private int sumOfNodes(IntBSTNode p){
+        if (p.left == null && p.right == null)
+            return p.key;
+        else if (p.left == null){
+            return p.key + sumOfNodes(p.right);
+        }
+        else if (p.right == null){
+            return p.key + sumOfNodes(p.left);
+        }
+        else{
+            return sumOfNodes(p.right) + p.key + sumOfNodes(p.left);
+        }
+
+        /* Original solution:
+
         if (p == null)
             return 0;
-        else {
-            return sumOfNodes(p.left) + p.key + sumOfNodes(p.right);
-        }
+        else
+            return sumOfNodes(p.right) + p.key + sumOfNodes(p.left);
+        */
+
     }
 
     public boolean isBalanced(){
         return isBalanced(root) >= 0;
     }
-
     private int isBalanced(IntBSTNode p){
-        if (p == null)
-            return 0;
-        else if ( Math.abs(isBalanced(p.left) - isBalanced(p.right)) > 1 ) {
-            return -1;
-        }
-        else {
-            return 1 + Math.max(isBalanced(p.left),isBalanced(p.right));
-        }
+        /* TO DO !!! */
+        return 0;
     }
 
     @Test
