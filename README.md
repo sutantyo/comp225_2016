@@ -19,3 +19,24 @@ then it should work for a single node.
 p.s. I used the word 'invariant' in the 9am class while attempting to illustrate the final point.
 I think that's a bad word to use since you are used to loop invariants (which has a precise meaning).
 Please don't use this word.
+
+## Week 7 (Sorting)
+
+* Insertion sort, selection sort, merge sort, bucket/radix sort, and even quick sort is all natural to you, even though it
+maybe be strange at start. It should be easy to remember how these algorithm work. Shell sort is the only one which is unnatural.
+* Every time you are asked to provide a numerical answer, BACK IT UP. Give the formula behind your answer, or give a reason why.
+This way, even if your answer is wrong, you will still get partial mark if your reasoning is correct.
+* For Q1(d) part i), we worked out the explicit formula for the number of comparisons in shell sort, because it's a 5-sort followed
+by a 1-sort. If there was a 3-sort in the middle, we lose the structure of the array.
+* Q2 -> How you store your data depends on how you're going to use your data!
+* Q3 -> For part (c), there is a binary-search-like algorithm. Give it a try. It is a divide-and-conquer strategy.
+* Q4 -> Sorting is great, but don't blindly sort everything! Sometimes it doesn't make any difference whether you sort the data first or not.
+Sometimes it makes a huge difference. Read each case again and convince yourself whether or not you would sort.
+* Complexity analysis: just because something is O(n), doesn't mean it is always better than an O(n^2) algorithm. Imagine if you have
+an algorithm which requires 5000n operations, vs an algorithm that requires 3n^2 operations. If your n is very big, then sure the O(n)
+algorithm is better, but in many real life application, sometimes it's just faster to use the slower algorithm because you are working
+with small n, or maybe it cost a lot to set up the fast algorithm to be worth it for small values. One good example here is algorithms involving
+precomputations (didn't talk about this in class, will try to do so next week).
+* DO THE QUICKSORT QUESTION. TRACE THE ALGORITHM. IT WILL BE IN THE EXAM! (or at least something similar to it will be).
+* Q7 and Q8 are different variations of quicksort: same concept, different application. Look at DutchFlag.java in src/week7, and complete it for Q8.
+You only need to add 3 lines.
