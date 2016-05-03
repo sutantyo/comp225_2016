@@ -7,7 +7,7 @@ Here are my personal notes for the stuffs that we did in the class.
 * The code for linked list, binary trees, and graphs have a similar structure:
   * linked list: Node next
   * binary tree: Node left, Node right
-  * graph: ArrayList<Node> (maybe!)
+  * graph: ArrayList&ltNode&gt (maybe!)
 * Efficiency of data structures: binary tree vs linked list vs array (ArrayList)
   * remember that if you use an array, you may have to shift everything when inserting a new element (at a sorted position)
   * in binary tree, removing or adding is just O(1), once you've found it (taking O(log n) )
@@ -31,12 +31,12 @@ by a 1-sort. If there was a 3-sort in the middle, we lose the structure of the a
 * Q2 -> How you store your data depends on how you're going to use your data!
 * Q3 -> For part (c), there is a binary-search-like algorithm. Give it a try. It is a divide-and-conquer strategy.
 * Q4 -> Sorting is great, but don't blindly sort everything! Sometimes it doesn't make any difference whether you sort the data first or not.
-Sometimes it makes a huge difference. Read each case again and convince yourself whether or not you would sort.
+Other times, it makes a huge difference. Read each case again and convince yourself whether or not you would sort.
 * Complexity analysis: just because something is O(n), doesn't mean it is always better than an O(n^2) algorithm. Imagine if you have
-an algorithm which requires 5000n operations, vs an algorithm that requires 3n^2 operations. If your n is very big, then sure the O(n)
-algorithm is better, but in many real life application, sometimes it's just faster to use the slower algorithm because you are working
-with small n, or maybe it cost a lot to set up the fast algorithm to be worth it for small values. One good example here is algorithms involving
-precomputations (didn't talk about this in class, will try to do so next week).
+an algorithm which requires 5000n operations, vs an algorithm that requires 3n^2 operations. If your n is very big, then the O(n)
+algorithm is better. However, in many real life application, sometimes it's just faster to use the slower algorithm when n is small.
+The faster algorithm may also require more work to set up. For example, complexity of n + 1000 = O(n) (look up precomputation on wikipedia).
 * DO THE QUICKSORT QUESTION. TRACE THE ALGORITHM. IT WILL BE IN THE EXAM! (or at least something similar to it will be).
 * Q7 and Q8 are different variations of quicksort: same concept, different application. Look at DutchFlag.java in src/week7, and complete it for Q8.
 You only need to add 3 lines.
+* Added FindMedian.java that can be used to find the median in one pass, but since it uses two priority queues, it is still O(n log n).
