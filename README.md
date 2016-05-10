@@ -52,5 +52,6 @@ linked list, and of course, heaps)
 that you need
 * Q7: The use of comparator. You can find my version of comparator implementation in Q7.java. Remember that the method compare(a,b) should return a positive
 value if a > b and negative value when a < b.
-* It's very important that you give Q3 and Q6 a try. Q6 is *very* short, but makes sure that you can play around priority queues.
-* By experimentation, we worked out that Iterator on a priority queue doesn't traverse the priority queue in order.
+* It's very important that you give Q3 and Q6 a try. Q6 is *very* short, but it is good in making sure that you can use priority queues.
+* By experimentation, we worked out that Iterator on a priority queue doesn't traverse the priority queue in order. I believe it prints out the array
+in sequence. Give it a try!
