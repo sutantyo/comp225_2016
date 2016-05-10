@@ -40,3 +40,17 @@ The faster algorithm may also require more work to set up. For example, complexi
 * Q7 and Q8 are different variations of quicksort: same concept, different application. Look at DutchFlag.java in src/week7, and complete it for Q8.
 You only need to add 3 lines.
 * Added FindMedian.java that can be used to find the median in one pass, but since it uses two priority queues, it is still O(n log n).
+
+## Week 8 (Heap)
+
+* The notes are a bit short this week because we didn't discuss too many things. It's a good tutorial for you to try on your own!
+* What is the difference between a PriorityQueue and a Heap? Remember that a priority queue can be implemented in many ways (arrays, binary search tree,
+linked list, and of course, heaps)
+* Q1-Q2: the idea is to use a priority queue to get the n-th element in an array (implicitly sorting the array)
+* Q3: make sure you know how to do heapDelete() and heapInsert(int), and can trace it by hand. The final answer is 6,4,5,1,2,3
+* Q6: int c - int 'a' is the offset that you need. It will set 'a' to 0, 'b' to 1, etc, which the index of the array containing the priority queue
+that you need
+* Q7: The use of comparator. You can find my version of comparator implementation in Q7.java. Remember that the method compare(a,b) should return a positive
+value if a > b and negative value when a < b.
+* It's very important that you give Q3 and Q6 a try. Q6 is *very* short, but makes sure that you can play around priority queues.
+* By experimentation, we worked out that Iterator on a priority queue doesn't traverse the priority queue in order.
