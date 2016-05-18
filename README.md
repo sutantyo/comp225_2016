@@ -55,3 +55,22 @@ value if a > b and negative value when a < b.
 * It's very important that you give Q3 and Q6 a try. Q6 is *very* short, but it is good in making sure that you can use priority queues.
 * By experimentation, we worked out that Iterator on a priority queue doesn't traverse the priority queue in order. I believe it prints out the array
 in sequence. Give it a try!
+
+## Week 9 (Hash Tables)
+
+* Make sure you do the coding exercises. This tutorial and the coming ones are becoming more  practical and you should attempt it yourself rather than
+just looking at the solution. Ask me if you have any problems.
+* Make sure you understand why we are doing hashing, read the example in the lecture notes about indexing students by their student numbers.
+* For the codes involving linear probing and quadratic probing, make sure you handle the case when the array is full, otherwise you
+may run into an infinite loop.
+* There is a mistake in the code that I put up: on deletion or find, you shouldn't stop at -1; you should stop only when you find the key
+or you hit a 0.
+* For quadratic probing, it is useful to precompute the indices that you will try to use, i.e. 0,-1,1,4,-4,9,-9,... . If you were to
+compute these as you insert/find/delete, the code will be quite complicated. Plus, it is just much more efficient to do this once at the start
+and then do a table lookup every time you need to do an insertion/find/deletion.
+* Converting an array into a heap is O(n log n), heapRebuild is O(log n), hence heapsort is O(n log n). Make sure you understand why.
+Make sure you know how to trace a heapsort (when and where to call heapRebuild()).
+* Using heapsort to do a sort in descending order is O(n^2 log n), because with the way I showed in class, you have to convert the array
+into a heap at every iteration, and this costs O(n log n) (and you have to do it n times)
+
+

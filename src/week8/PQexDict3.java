@@ -22,6 +22,7 @@ class Dict3 {
 		/* get the index that you need */
 		/* get the priority queue in that index from the arraylist */
 		/* return the size of the priority queue */
+		return 0;
 	}
 
 	public void printWordsStartingWith(char c){
