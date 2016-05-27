@@ -73,4 +73,22 @@ Make sure you know how to trace a heapsort (when and where to call heapRebuild()
 * Using heapsort to do a sort in descending order is O(n^2 log n), because with the way I showed in class, you have to convert the array
 into a heap at every iteration, and this costs O(n log n) (and you have to do it n times)
 
+## Week 10 (Simple Graphs)
 
+* We went through the code in the tutorial class, reinforcing what you have learnt in class. Note that if you understand
+the codes for this week, it is almost identical to the pass component of your second assignment, so give them a very
+good read!
+* These are the terms/definitions that you need to know when it comes to graphs: vertices/nodes (and their degrees),
+edges (and their weights), acyclic/cyclic (a tree is acyclic graph), directed/undirected (digraph), connected/unconnected,
+adjacency list, adjacency matrix, DFS, BFS, bipartite, unipartite.
+* DFS traversal can be done using a stack, so it is also natural to do it using recursion because you are implicitly using
+a stack (the method call stack).
+* BFS traversal can be done using a queue. Don't try to do BFS recursively, brain explosion can be messy.
+* In both DFS and BFS, the last node that you visit is the last node that you add to the stack or queue, respectively, so
+finding out this last node is quite trivial using the iterative version. The recursive version is slightly harder because
+you have to think about the base case.
+* Q5 is the hardest question in the whole tutorial, but can be done quite easily using the iterative version by looking
+at the size of the stack. For a good exercise, using the iterative DFS code, see if you can return the longest chain
+instead of just returning its length.
+* I did not put any code from this week's tutorial, but inside week10/src, you will see a maze folder which contains the
+JavaFX animation that I did in class for BFS/DFS. Game.java is the class that contains the logic (DFS and BFS). 
