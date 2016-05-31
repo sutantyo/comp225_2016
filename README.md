@@ -91,4 +91,26 @@ you have to think about the base case.
 at the size of the stack. For a good exercise, using the iterative DFS code, see if you can return the longest chain
 instead of just returning its length.
 * I did not put any code from this week's tutorial, but inside week10/src, you will see a maze folder which contains the
-JavaFX animation that I did in class for BFS/DFS. Game.java is the class that contains the logic (DFS and BFS). 
+JavaFX animation that I did in class for BFS/DFS. Game.java is the class that contains the logic (DFS and BFS).
+
+## Week 11 (More graphs)
+
+* Euler Circuit and Euler Path; the algorithm to determine if one exists is
+very simple: just check the degrees of the nodes. You can do this via DFS
+or just go through each node. Start with this code:
+```java
+	public boolean hasEulerPath() {
+		Integer tmp = numVerticesEvenDeg(this.getFirstVertexID());
+		return ((tmp == this.numVertices()) || (tmp == (this.numVertices()-2)));
+	}
+```
+* Topological ordering may not be unique. You can create a topological sort
+by picking nodes with no ancestors first, or picking nodes with no successors
+first.
+* Q5, the topSortEarlyW(..) code is wrong since it does topsort by picking
+nodes with no successors first. So in fact W will be printed out later.
+* Q6 illustrates that both DFS (and BFS) can both make a spanning tree,
+though not necessarily the minimum one. Each vertex will only be accessed
+once, so only n-1 edges will be added in a graph of size n
+* Dijkstra's algorithm: make sure you can trace through it. It will not
+work with negative values. Note that you can have a path with negative infinity!
